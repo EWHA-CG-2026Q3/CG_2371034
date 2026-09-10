@@ -19,8 +19,8 @@
 
 
                 //오각형 전용 벡터 
-                new Vector3(0.25f, 0f, 1f), // 8
-                new Vector3(0.75f, 0f, 1f), // 9
+                new Vector3(0.25f, 0.5f, 1f), // 8
+                new Vector3(0.75f, 0.5f, 1f), // 9
                 new Vector3(0.5f, 1.25f, 1f), // 10
 
 

@@ -27,7 +27,8 @@ public class S04_CustomDiamondMesh : MonoBehaviour
             3,4,0, ///1차수정
             3,4,2,
             1,4,2,
-            0,4,1
+            1,4,0 //2차 수정
+
 
             // 아래쪽 4면 (정점 5 사용)
         };

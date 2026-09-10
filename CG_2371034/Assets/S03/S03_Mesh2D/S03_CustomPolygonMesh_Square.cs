@@ -18,6 +18,13 @@
                 new Vector3(0f, 1f, 1f), // 7
 
 
+                //오각형 전용 벡터 
+                new Vector3(0.25f, 0f, 1f), // 8
+                new Vector3(0.75f, 0f, 1f), // 9
+                new Vector3(0.5f, 1.25f, 1f), // 10
+
+
+
           };
 
           // TODO 2: 정점 3개씩 묶어 삼각형들을 구성하세요

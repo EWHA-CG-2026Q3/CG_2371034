@@ -188,7 +188,7 @@ public class S07_Clipping : MonoBehaviour
     {
         // TODO
         float t = (boundaryY - p1.y) / (p2.y - p1.y);
-       return new Vector2(boundaryY, p1.x + t * (p2.x - p1.x));
+       return new Vector2(p1.x + t * (p2.x - p1.x), boundaryY);
     }
 
     // ── 이미 완성되어 있음 (S06과 동일한 로직 재사용) ─────────

@@ -140,12 +140,12 @@ public class S07_Clipping : MonoBehaviour
 
             if (currentInside)
             {
-                if (!previousInside) output.Add(GetIntersectionX(previous, current, boundary));
+                if (!previousInside) output.Add(GetIntersectionY(previous, current, boundary));
                 output.Add(current);
             }
             else if (previousInside)
             {
-                output.Add(GetIntersectionX(previous, current, boundary));
+                output.Add(GetIntersectionY(previous, current, boundary));
             }
         }
         return output;
@@ -165,12 +165,12 @@ public class S07_Clipping : MonoBehaviour
 
             if (currentInside)
             {
-                if (!previousInside) output.Add(GetIntersectionX(previous, current, boundary));
+                if (!previousInside) output.Add(GetIntersectionY(previous, current, boundary));
                 output.Add(current);
             }
             else if (previousInside)
             {
-                output.Add(GetIntersectionX(previous, current, boundary));
+                output.Add(GetIntersectionY(previous, current, boundary));
             }
         }
         return output;
@@ -187,7 +187,8 @@ public class S07_Clipping : MonoBehaviour
     private Vector2 GetIntersectionY(Vector2 p1, Vector2 p2, float boundaryY)
     {
         // TODO
-        return Vector2.zero;
+        float t = (boundaryY - p1.y) / (p2.y - p1.y);
+       return new Vector2(boundaryY, p1.x + t * (p2.x - p1.x));
     }
 
     // ── 이미 완성되어 있음 (S06과 동일한 로직 재사용) ─────────

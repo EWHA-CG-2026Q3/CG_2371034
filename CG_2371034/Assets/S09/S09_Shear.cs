@@ -32,7 +32,7 @@ public class S09_Shear : MonoBehaviour
             verts[i] = FromHomogeneous(MultiplyMatrixVectorRaw(S, ToHomogeneous(baseVertices[i])));
             if(i == 5 && lastK != k)
             {
-                Debug.Log("꼭대기 정점의 좌표는 " + verts[i]);
+                Debug.Log("K값: " + k + " 꼭대기 정점의 좌표는 " + verts[i]);
                 lastK = k;
             }
         }

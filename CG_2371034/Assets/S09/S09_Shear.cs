@@ -1,3 +1,4 @@
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 
@@ -6,6 +7,7 @@ using UnityEngine;
 public class S09_Shear : MonoBehaviour
 {
     [SerializeField] float k = (4f + 1f) / 5f;   // 기울이기 정도
+    float lastK = 1000; // k 가 바뀔 떄마다 꼭대기 정점의 좌표를 찍어내기 위한 전역변수 선언
 
 
     DiamondMesh diamondMesh;
@@ -20,7 +22,7 @@ public class S09_Shear : MonoBehaviour
 
     void Update()
     {
-        float lastK = 1000; // 
+       
         if (diamondMesh == null || diamondMesh.BaseVertices == null) return;
 
         float[,] S = ShearMatrixRaw(k);

@@ -7,9 +7,10 @@ public class S09_Shear : MonoBehaviour
 {
     [SerializeField] float k = (4f + 1f) / 5f;   // 기울이기 정도
 
+
     DiamondMesh diamondMesh;
 
-    
+
 
 
     void OnEnable()
@@ -19,6 +20,7 @@ public class S09_Shear : MonoBehaviour
 
     void Update()
     {
+        float lastK = 1000; // 
         if (diamondMesh == null || diamondMesh.BaseVertices == null) return;
 
         float[,] S = ShearMatrixRaw(k);
@@ -26,9 +28,10 @@ public class S09_Shear : MonoBehaviour
         Vector3[] verts = new Vector3[baseVertices.Length];
         for (int i = 0; i < baseVertices.Length; i++){
             verts[i] = FromHomogeneous(MultiplyMatrixVectorRaw(S, ToHomogeneous(baseVertices[i])));
-            if(i == 5)
+            if(i == 5 && lastK != k)
             {
                 Debug.Log("꼭대기 정점의 좌표는 " + verts[i]);
+                lastK = k;
             }
         }
         diamondMesh.SetVertices(verts);

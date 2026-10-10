@@ -64,9 +64,10 @@ public class S11_VirtualCamera_Finish : MonoBehaviour
     {
         Matrix4x4 Tinv = Matrix4x4.Translate(-cam.position);                  // T⁻¹: 이동을 되돌림
         Matrix4x4 Rinv = Matrix4x4.Rotate(Quaternion.Inverse(cam.rotation));  // R⁻¹: 회전을 되돌림
+        
         //return Rinv * Tinv;                                                   // V = R⁻¹ × T⁻¹
-        Debug.Log(Rinv * Tinv);
-        Debug.Log(MultiplyMatrixMatrix(Rinv, Tinv));
+        // Debug.Log(Rinv * Tinv);
+        // Debug.Log(MultiplyMatrixMatrix(Rinv, Tinv));
 
         return MultiplyMatrixMatrix(Rinv, Tinv);
     }

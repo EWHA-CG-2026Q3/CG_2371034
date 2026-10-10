@@ -64,7 +64,11 @@ public class S11_VirtualCamera_Finish : MonoBehaviour
     {
         Matrix4x4 Tinv = Matrix4x4.Translate(-cam.position);                  // T⁻¹: 이동을 되돌림
         Matrix4x4 Rinv = Matrix4x4.Rotate(Quaternion.Inverse(cam.rotation));  // R⁻¹: 회전을 되돌림
-        return Rinv * Tinv;                                                   // V = R⁻¹ × T⁻¹
+        //return Rinv * Tinv;                                                   // V = R⁻¹ × T⁻¹
+        Debug.Log(Rinv * Tinv);
+        Debug.Log(MultiplyMatrixMatrix(Rinv, Tinv));
+
+        return MultiplyMatrixMatrix(Rinv, Tinv);
     }
 
     // 카메라(VirtualCamera)가 본 장면을 캔버스에 와이어프레임으로 그림 (매 프레임 호출)
@@ -149,6 +153,24 @@ public class S11_VirtualCamera_Finish : MonoBehaviour
     {
         canvas.SetPixels(clearPixels);                            // 미리 만든 바탕색 배열로 한 번에 채움
     }
+
+
+    Matrix4x4 MultiplyMatrixMatrix(Matrix4x4 A, Matrix4x4 B)
+    {
+        Matrix4x4 C = new Matrix4x4();                 // 결과를 담을 빈 행렬
+        for (int j = 0; j < 4; j++)                    // 열 0, 1, 2, 3을 하나씩
+        {
+            Vector4 b = B.GetColumn(j);                // B의 j열을 꺼냄
+            Vector4 c = A.GetColumn(0) * b.x           // A의 1열 × x
+                    + A.GetColumn(1) * b.y           // + A의 2열 × y
+                    + A.GetColumn(2) * b.z           // + A의 3열 × z
+                    + A.GetColumn(3) * b.w;          // + A의 4열 × w
+            C.SetColumn(j, c);                         // 그 결과를 C의 j열에 넣음
+        }
+        return C;
+    }
+
+
 
     // Scene 뷰에 VirtualCamera의 축 세 개와, 캔버스에 담기는 범위(상자)를 그림
     void OnDrawGizmos()

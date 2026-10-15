@@ -43,6 +43,9 @@
           mesh.RecalculateNormals();
 
           GetComponent<MeshFilter>().mesh = mesh;
-          GetComponent<MeshRenderer>().sharedMaterial = new Material(Shader.Find("Universal Render Pipeline/Lit"));
+          // material이 없으면 기본 Lit, 있으면 그대로 사용
+          MeshRenderer mr = GetComponent<MeshRenderer>();
+          if (mr.sharedMaterial == null)
+                mr.sharedMaterial = new Material(Shader.Find("Universal Render Pipeline/Lit"));
       }
   }

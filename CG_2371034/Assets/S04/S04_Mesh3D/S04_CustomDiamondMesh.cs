@@ -42,6 +42,8 @@ public class S04_CustomDiamondMesh : MonoBehaviour
         mesh.RecalculateNormals();
 
         GetComponent<MeshFilter>().mesh = mesh;
-        GetComponent<MeshRenderer>().sharedMaterial = new Material(Shader.Find("Universal Render Pipeline/Lit"));
+        MeshRenderer mr = GetComponent<MeshRenderer>();
+          if (mr.sharedMaterial == null)
+            mr.sharedMaterial = new Material(Shader.Find("Universal Render Pipeline/Lit"));
     }
 }

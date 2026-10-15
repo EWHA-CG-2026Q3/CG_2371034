@@ -1,0 +1,5 @@
+**Asset Name:** Pavilion  
+**Creator:** IG BLOCKS  
+**Source:** Unity Asset Store  
+**Original Link:** https://assetstore.unity.com/packages/3d/props/exterior/pavilion-85680  
+**License:** Standard Unity Asset Store EULA

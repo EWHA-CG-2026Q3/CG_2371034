@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(MeshFilter), typeof(MeshRenderer))]
+[ExecuteAlways]
 public class S04_CustomDiamondMesh : MonoBehaviour
 {
     void Start()

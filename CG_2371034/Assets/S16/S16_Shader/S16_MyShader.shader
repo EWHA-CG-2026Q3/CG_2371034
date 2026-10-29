@@ -1,5 +1,10 @@
 ﻿Shader "CG/S16_MyShader"
 {
+    Properties
+    {
+        _BaseColor ("Base Color", Color) = (0, 0, 0, 1)
+        [HDR] _EmissionColor ("Emission Color", Color) = (1, 1, 1, 1)
+    }
     SubShader
     {
         Pass
@@ -16,7 +21,7 @@
 
             float4 frag() : SV_Target
             {
-                return float4(1, 0, 0, 1);
+                return float4(0, 1, 0, 1);
             }
             ENDHLSL
         }

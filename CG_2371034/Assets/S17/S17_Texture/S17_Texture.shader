@@ -32,13 +32,13 @@
                  //p = uv * 0.5 + float2(0, 0.5);
 
                 // 미션 2: 그림 전체를 표면의 왼쪽 아래 1/4에
-                p = uv * 2;
+                //p = uv * 2;
                 //회색으로 칠하기
-                if (p.x > 1 || p.y > 1) return float4(0.8, 0.8, 0.8, 1);
+                //if (p.x > 1 || p.y > 1) return float4(0.8, 0.8, 0.8, 1);
 
 
                 // 미션 3: B2만 보기
-                //p = uv * 0.25 + float2(0.25 ,0.5);
+                p = uv * 0.25 + float2(0.25 ,0.5);
 
 
                 return tex2D(_BaseMap, p);

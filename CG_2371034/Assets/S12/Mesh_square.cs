@@ -17,6 +17,8 @@ public class Mesh_square : MonoBehaviour
                 new Vector3(1f, 1f, 1f), // 6
                 new Vector3(0f, 1f, 1f), // 7
 
+                
+
 
 
 
